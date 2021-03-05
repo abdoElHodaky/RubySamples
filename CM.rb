@@ -513,4 +513,8 @@ class CM
 		end
 		return edit
 	end
+       def _*_s(s,vector=false,r=nil,c=nil)
+	 self.resMatrix(self.mulS(getMatrix,vector,r,c))
+	 self.resMatrix
+	end
 end
