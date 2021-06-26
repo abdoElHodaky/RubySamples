@@ -374,7 +374,7 @@ class CM
 		return self
 	end
 	def *(other)
-      res=CM::resMul
+            res=CM::resMul
 	    matrix=self::getMatrix
 	    matrix2=other::getMatrix
 	    r=[]
@@ -393,11 +393,11 @@ class CM
 		return self
 	end
 	def /(other)
-		matrix=self::getMatrix
+            matrix=self::getMatrix
 	    matrix2=other::getMatrix
-      inverse=!other
-      CM::resMul true
-      return self*inverse
+            inverse=!other
+            CM::resMul true
+            return self*inverse
 	end
 	def !()
 	    self::resMatrix(self::Inverse(self.getMatrix))
@@ -516,5 +516,9 @@ class CM
        def _*_s(s,vector=false,r=nil,c=nil)
 	 self.resMatrix(self.mulS(getMatrix,vector,r,c))
 	 self.resMatrix
-	end
+       end
+       def self._+_(*objects)
+        yield objects.map{|obj| obj}
+       end
+      
 end
