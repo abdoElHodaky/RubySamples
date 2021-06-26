@@ -517,8 +517,4 @@ class CM
 	 self.resMatrix(self.mulS(getMatrix,vector,r,c))
 	 self.resMatrix
        end
-       def self._+_(*objects)
-        yield objects.map{|obj| obj}
-       end
-      
 end
