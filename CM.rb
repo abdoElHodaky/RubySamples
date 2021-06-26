@@ -517,4 +517,10 @@ class CM
 	 self.resMatrix(self.mulS(getMatrix,vector,r,c))
 	 self.resMatrix
        end
+      def <<(matrix)
+       fill_matrix(matrix)
+     end
+     def |m|()
+       getdet(getMatrix,0)
+     end
 end
