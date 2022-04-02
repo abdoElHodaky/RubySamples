@@ -19,7 +19,7 @@ class CM
 				@@matrix[i]=matrix[i]
 			end
 			else
-				@@matrix::pop() if @@matrix.length!=@@matrix[0].lenght
+				#@@matrix::pop() if @@matrix.length!=@@matrix[0].lenght
 			@@matrix=self::AtoMatrix(matrix,Math.sqrt(matrix.length).ceil,Math.sqrt(matrix.length).ceil)
 		end
 		@resMatrix=@@matrix
@@ -513,29 +513,30 @@ class CM
 		end
 		return edit
 	end
-       def _*_s(s,vector=false,r=nil,c=nil)
+       '''def _*_s(s,vector=false,r=nil,c=nil)
 	 self.resMatrix(self.mulS(getMatrix,vector,r,c))
 	 self.resMatrix
-       end
+       end'''
       def <<(matrix)
        fill_matrix(matrix)
      end
-     def |m|()
+     '''def |m|()
        getdet(getMatrix,0)
-     end
+     end'''
      def self.count matrix,item
+       matrix=CM::new().fill_matrix(matrix)
        count={item=>0,"indexes"=>[]}
-       r=0
        for i in (0...matrix[0].length)
-        rc=getcols(matrix,i,r)
-         if rc == item 
+        for j in (0...matrix.length)
+           rc=getcols(matrix,i,j)
+           if rc==item 
             count[item]+=1
-            count["rows"].push([r,i])
-         else
-            continue 
+            count["indexes"].push([j,i])
+           else
+             next 
+           end
         end
-         r+=1
-        end
+       end
         return count
      end
 end
