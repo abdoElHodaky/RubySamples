@@ -524,18 +524,18 @@ class CM
        getdet(getMatrix,0)
      end
      def self.count matrix,item
-      count={item=>0,"rows"=>[]}
-      r=0
-      for i in (0...matrix[0].length)
+       count={item=>0,"indexes"=>[]}
+       r=0
+       for i in (0...matrix[0].length)
         rc=getcols(matrix,i,r)
          if rc == item 
             count[item]+=1
-            count["rows"].push(r)
+            count["rows"].push([r,i])
          else
             continue 
         end
-        r+=1
-       end
-      return count
+         r+=1
+        end
+        return count
      end
 end
