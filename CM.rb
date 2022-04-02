@@ -523,4 +523,19 @@ class CM
      def |m|()
        getdet(getMatrix,0)
      end
+     def self.count matrix,item
+      count={item=>0,"rows"=>[]}
+      r=0
+      for i in (0...matrix[0].length)
+        rc=getcols(matrix,i,r)
+         if rc == item 
+            count[item]+=1
+            count["rows"].push(r)
+         else
+            continue 
+        end
+        r+=1
+       end
+      return count
+     end
 end
